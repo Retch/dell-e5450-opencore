@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: config.plist validation
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: anyone-validate-xml
+        # You may pin to the exact commit or the version.
+        # uses: anyone-developer/anyone-validate-xml@acb1a8d429eaba594587a25bf977e6c554a5e72e
+        uses: anyone-developer/anyone-validate-xml@0.9.2
+        with:
+          # file extension that you want to read. such as "config" or "xml". split with comma.
+          file-extension: plist
+          # the files you want to ignore. split with comma.
+          # ignore-files: # optional, default is 
+          # the directories you want to ignore. split with comma.
+          # ignore-directories: # optional, default is 
+          # the path that you assign to read.
+          read-path: EFI
