@@ -38,4 +38,4 @@ jobs:
           # the directories you want to ignore. split with comma.
           # ignore-directories: # optional, default is 
           # the path that you assign to read.
-          read-path: 'EFI'
+          read-path: 'EFI/OC'
