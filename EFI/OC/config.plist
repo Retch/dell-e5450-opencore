@@ -93,7 +93,7 @@
 				<key>All</key>
 				<false/>
 				<key>Comment</key>
-				<string>Drop CpuPm</string>
+				<string>Delete CpuPm</string>
 				<key>Enabled</key>
 				<false/>
 				<key>OemTableId</key>
@@ -111,7 +111,7 @@
 				<key>All</key>
 				<false/>
 				<key>Comment</key>
-				<string>Drop Cpu0Ist</string>
+				<string>Delete Cpu0Ist</string>
 				<key>Enabled</key>
 				<false/>
 				<key>OemTableId</key>
@@ -316,7 +316,7 @@
 			<key>ResetHwSig</key>
 			<false/>
 			<key>ResetLogoStatus</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>Booter</key>
@@ -335,13 +335,48 @@
 				<key>Address</key>
 				<integer>4278190080</integer>
 				<key>Comment</key>
-				<string>Generic: PCI root is a 0x1000 page memory region used by some firmwares</string>
+				<string>Generic: PCI root is a 0x1000 page memory region used by some types of firmware</string>
 				<key>Enabled</key>
 				<false/>
 			</dict>
 		</array>
+		<key>Patch</key>
+		<array>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>Comment</key>
+				<string>macOS to hacOS</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				bWFjT1M=
+				</data>
+				<key>Identifier</key>
+				<string>Apple</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				aGFjT1M=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+		</array>
 		<key>Quirks</key>
 		<dict>
+			<key>AllowRelocationBlock</key>
+			<false/>
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
 			<key>DevirtualiseMmio</key>
@@ -922,7 +957,7 @@
 				<key>BundlePath</key>
 				<string>System/Library/Extensions/IONetworkingFamily.kext</string>
 				<key>Comment</key>
-				<string>Patch engine</string>
+				<string></string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
@@ -1033,7 +1068,7 @@
 				/wAA////////////
 				</data>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>19.9.9</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>Replace</key>
@@ -1073,7 +1108,7 @@
 				<string></string>
 				<key>Replace</key>
 				<data>
-				MduKD4TJdQT/w7EKZrr9A+yoIHT7Zrr4A4jI7kj/x4Xb
+				MfaKD4TJdQT/xrEKZrr9A+yoIHT7Zrr4A4jI7kj/x4X2
 				dN/r/g==
 				</data>
 				<key>ReplaceMask</key>
@@ -1109,7 +1144,7 @@
 				<string></string>
 				<key>Replace</key>
 				<data>
-				MduKD4TJdQT/w7EKZrr9A+yoIHT7Zrr4A4jI7kj/x4Xb
+				MfaKD4TJdQT/xrEKZrr9A+yoIHT7Zrr4A4jI7kj/x4X2
 				dN/D
 				</data>
 				<key>ReplaceMask</key>
@@ -1176,7 +1211,9 @@
 			<key>ExtendBTFeatureFlags</key>
 			<false/>
 			<key>ExternalDiskIcons</key>
-			<true/>
+			<false/>
+			<key>ForceSecureBootScheme</key>
+			<false/>
 			<key>IncreasePciBarSize</key>
 			<false/>
 			<key>LapicKernelPanic</key>
@@ -1188,7 +1225,7 @@
 			<key>PowerTimeoutKernelPanic</key>
 			<true/>
 			<key>ThirdPartyDrives</key>
-			<true/>
+			<false/>
 			<key>XhciPortLimit</key>
 			<false/>
 		</dict>
@@ -1215,13 +1252,15 @@
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>PickerAttributes</key>
-			<integer>0</integer>
+			<integer>17</integer>
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
 			<string>External</string>
+			<key>PickerVariant</key>
+			<string>Auto</string>
 			<key>PollAppleHotKeys</key>
-			<true/>
+			<false/>
 			<key>ShowPicker</key>
 			<true/>
 			<key>TakeoffDelay</key>
@@ -1232,9 +1271,9 @@
 		<key>Debug</key>
 		<dict>
 			<key>AppleDebug</key>
-			<false/>
+			<true/>
 			<key>ApplePanic</key>
-			<false/>
+			<true/>
 			<key>DisableWatchDog</key>
 			<false/>
 			<key>DisplayDelay</key>
@@ -1246,7 +1285,7 @@
 			<key>SysReport</key>
 			<false/>
 			<key>Target</key>
-			<integer>3</integer>
+			<integer>67</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
@@ -1263,20 +1302,24 @@
 				<string>CustomOS</string>
 				<key>Path</key>
 				<string>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</string>
+				<key>TextMode</key>
+				<false/>
 			</dict>
 		</array>
 		<key>Security</key>
 		<dict>
 			<key>AllowNvramReset</key>
-			<true/>
+			<false/>
 			<key>AllowSetDefault</key>
 			<true/>
 			<key>ApECID</key>
 			<integer>0</integer>
 			<key>AuthRestart</key>
 			<false/>
+			<key>BlacklistAppleUpdate</key>
+			<true/>
 			<key>BootProtect</key>
-			<string>Bootstrap</string>
+			<string>None</string>
 			<key>DmgLoading</key>
 			<string>Signed</string>
 			<key>EnablePassword</key>
@@ -1312,7 +1355,11 @@
 				<key>Name</key>
 				<string>UEFI Shell</string>
 				<key>Path</key>
-				<string>Shell.efi</string>
+				<string>OpenShell.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -1327,6 +1374,28 @@
 				<string>memcheck</string>
 				<key>Path</key>
 				<string>memcheck/memcheck.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string>Shutdown</string>
+				<key>Auxiliary</key>
+				<true/>
+				<key>Comment</key>
+				<string>Perform shutdown</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Name</key>
+				<string>Shutdown</string>
+				<key>Path</key>
+				<string>ResetSystem.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -1403,6 +1472,8 @@
 				<string>bluetoothInternalControllerInfo</string>
 				<string>flagstate</string>
 				<string>fmm-computer-name</string>
+				<string>fmm-mobileme-token-FMM</string>
+				<string>fmm-mobileme-token-FMM-BridgeHasAccount</string>
 				<string>nvda_drv</string>
 				<string>prev-lang:kbd</string>
 			</array>
@@ -1416,12 +1487,14 @@
 			</array>
 		</dict>
 		<key>WriteFlash</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
 		<key>Automatic</key>
 		<true/>
+		<key>CustomMemory</key>
+		<false/>
 		<key>Generic</key>
 		<dict>
 			<key>AdviseWindows</key>
@@ -1432,7 +1505,7 @@
 			<integer>0</integer>
 			<key>ROM</key>
 			<data>
-			ESIzAAAA
+			ESIzRFVm
 			</data>
 			<key>SpoofVendor</key>
 			<true/>
@@ -1484,15 +1557,17 @@
 			<key>MinimumVolume</key>
 			<integer>20</integer>
 			<key>PlayChime</key>
-			<false/>
+			<string>Auto</string>
+			<key>SetupDelay</key>
+			<integer>0</integer>
 			<key>VolumeAmplifier</key>
-			<integer>200</integer>
+			<integer>0</integer>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>HFSPlus.efi</string>
+			<string>OpenHfsPlus.efi</string>
 			<string>OpenRuntime.efi</string>
 			<string>OpenCanopy.efi</string>
 		</array>
@@ -1513,7 +1588,7 @@
 			<key>PointerSupport</key>
 			<false/>
 			<key>PointerSupportMode</key>
-			<string></string>
+			<string>ASUS</string>
 			<key>TimerResolution</key>
 			<integer>50000</integer>
 		</dict>
@@ -1525,8 +1600,10 @@
 			<string></string>
 			<key>DirectGopRendering</key>
 			<false/>
+			<key>ForceResolution</key>
+			<false/>
 			<key>IgnoreTextInGraphics</key>
-			<true/>
+			<false/>
 			<key>ProvideConsoleGop</key>
 			<true/>
 			<key>ReconnectOnResChange</key>
@@ -1536,7 +1613,7 @@
 			<key>Resolution</key>
 			<string>Max</string>
 			<key>SanitiseClearScreen</key>
-			<true/>
+			<false/>
 			<key>TextRenderer</key>
 			<string>BuiltinGraphics</string>
 			<key>UgaPassThrough</key>
@@ -1573,7 +1650,7 @@
 			<key>DeviceProperties</key>
 			<false/>
 			<key>FirmwareVolume</key>
-			<false/>
+			<true/>
 			<key>HashServices</key>
 			<false/>
 			<key>OSInfo</key>
@@ -1583,14 +1660,12 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
-			<key>DeduplicateBootOrder</key>
-			<true/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
 			<key>IgnoreInvalidFlexRatio</key>
 			<true/>
 			<key>ReleaseUsbOwnership</key>
-			<false/>
+			<true/>
 			<key>RequestBootVarRouting</key>
 			<true/>
 			<key>TscSyncTimeout</key>
