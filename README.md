@@ -1,6 +1,6 @@
 # Opencore for Broadwell based Dell Latitudes
 
-## Version 0.6.5
+## Version 0.7.5 Dev
 
 ### e5450, e5250, e7450, e7250
 
